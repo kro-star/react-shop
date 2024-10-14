@@ -1,5 +1,5 @@
 function BascketItem(props){
-    const { mainId, displayName,  price, displayAssets, quantity, addGood = Function.prototype, removeGood=Function.prototype, decrementGood=Function.prototype, incrementGood=Function.prototype  } = props;
+    const { mainId, displayName,  price, displayAssets, quantity, removeGood=Function.prototype, decrementGood=Function.prototype, incrementGood=Function.prototype  } = props;
     
     const delSrc = require('../img/del1.png');
 

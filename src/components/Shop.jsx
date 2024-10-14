@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react"
 import {API_KEY, API_URL} from '../config'
-import { Link } from 'react-router-dom'; 
 
 import {Header} from './Header';
 import {Footer} from './Footer';

@@ -7,6 +7,7 @@ function Alert (props) {
         const timerId = setTimeout(closeAlert, 3000);
 
         return () => clearTimeout(timerId);
+        //eslint-disable-next-line
     }, [name])
 
     return <div className="alert bg-violet text-white position-fixed">

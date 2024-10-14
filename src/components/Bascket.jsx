@@ -1,4 +1,3 @@
-import React, {useState} from 'react';
 import {BascketItem} from './BascketItem'
 
 function Bascket(props){
