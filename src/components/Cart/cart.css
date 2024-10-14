@@ -1,0 +1,16 @@
+.cart{
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    border-radius: 50px;
+    padding: 5px 10px;
+    z-index: 7;
+    background-color: rgb(157, 48, 224);
+}
+
+@media (max-width: 756px){
+    .cart{
+        top: unset;
+        bottom: 2rem;
+    }
+}
