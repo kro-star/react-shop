@@ -10,17 +10,17 @@ function Header (props) {
                 <div className="container">
                     <div className="row w-100 mb-4">
                         <div className="col-12 w-100 text-center ">
-                        <Link  to={`/`}>
+                        <a href="#!">
                             <img src={logoSrc} alt="" />
-                        </Link>
+                        </a>
                         
                         </div>
                     </div>
                         
                        
                     
-                    </div>
-                </nav>
+                </div>
+            </nav>
     </div>
                
     </>

@@ -13,6 +13,35 @@ function GoodItem(props){
         <div className="col-12 col-sm-6 col-md-4 col-lg-3 pb-5" id={mainId} >
             <div className="card  h-100" >
                 
+                    { displayAssets[0].full_background.length > 0 ?  <img src={displayAssets[0].full_background} className="card-img-top w-100 " alt={displayName}/> : {displayName}
+                    }
+                <div className="card-body d-flex flex-column ">
+                    
+                    <div className="card-title">{displayName}</div>
+                    <div className="card-text flex-grow-1">{displayDescription}</div>
+                    <div className="fs-4 mb-3 text-center text-violet fw-medium ">{price.finalPrice} руб.</div>
+                    <button className="btn btn-primary w-100 text-center" onClick={() => addGood({mainId, price, displayAssets, displayName})
+                        }>
+                            Купить
+                    </button>
+            </div>
+        </div>
+       
+    </div> : ''
+    }
+    </>
+)
+}
+export {GoodItem}
+
+
+/*{
+        mainId ?
+
+        
+        <div className="col-12 col-sm-6 col-md-4 col-lg-3 pb-5" id={mainId} >
+            <div className="card  h-100" >
+                
                 <Link key={mainId} to={`/product/${mainId}`}>
                     { displayAssets[0].full_background.length > 0 ?  <img src={displayAssets[0].full_background} className="card-img-top w-100 " alt={displayName}/> : {displayName}
                     }
@@ -33,11 +62,7 @@ function GoodItem(props){
        
     </div> : ''
     }
-    </>
-)
-}
-export {GoodItem}
-
+    </> */
 
 
 /*
