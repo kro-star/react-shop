@@ -1,9 +1,13 @@
+import { useContext } from 'react';
+import { ShopContect } from '../context';
+
 function BascketItem(props){
-    const { mainId, displayName,  price, displayAssets, quantity, removeGood=Function.prototype, decrementGood=Function.prototype, incrementGood=Function.prototype  } = props;
+    const { removeGood,  decrementGood, incrementGood } = useContext(ShopContect);
+    const { mainId, displayName,  price, displayAssets, quantity} = props;
     
     const delSrc = require('../img/del1.png');
 
-    return <div className="row pt-3 pb-3 bascket-item" id={mainId}>
+    return <div className="row pt-3 pb-3 bascket-item" key={mainId}  id={mainId}>
         <div className="col-2 d-none d-md-block text-center ">
         { displayAssets[0].full_background.length > 0 ?  <img src={displayAssets[0].full_background} className="bascketImg w-100" alt={displayName}/> : {displayName}
                 }

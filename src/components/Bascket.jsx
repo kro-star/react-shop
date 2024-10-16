@@ -1,7 +1,11 @@
+import { useContext } from 'react';
+import { ShopContect } from '../context';
+
 import {BascketItem} from './BascketItem'
 
 function Bascket(props){
-    const {order, handleBascketShow = Function.prototype, totalSum, addGood=Function.prototype, removeGood=Function.prototype, decrementGood=Function.prototype, incrementGood=Function.prototype } = props;
+    const { handleBascketShow, order, totalSum } = useContext(ShopContect);
+    
     
 
     const closeSrc = require('../img/close.png');
@@ -18,8 +22,8 @@ function Bascket(props){
             <div className="bascket-items overflow-y-auto row">
                 <div className="col-12">
 
-                    {order.map(item => { 
-                        return <BascketItem  {...item} addGood={addGood} removeGood={removeGood} decrementGood={decrementGood} incrementGood={incrementGood} />})} 
+                    {order.length > 0 && order.map(item => { 
+                        return <BascketItem  {...item} />})} 
                     { order.length > 0 ? <>
                     <div className="row pt-2 pb-2 text-violet bg-white border-top  ">
                         <div className="col-7 text-right fs-4 fw-medium">ИТОГО:</div>
@@ -42,7 +46,7 @@ function Bascket(props){
 
             </div>
             
-                <img className="close" src={closeSrc} alt="" onClick={handleBascketShow}/>
+                <img className="close" src={closeSrc} alt="" onClick={() => handleBascketShow()}/>
             
         </div>
     </div>

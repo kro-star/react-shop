@@ -1,17 +1,20 @@
+import { useContext } from "react";
+import { ShopContect } from "../context";
+
 import { useEffect } from "react"
 
-function Alert (props) {
-    const {name, closeAlert = Function.prototype} = props;
+function Alert () {
+    const {closeAlert, alertName} = useContext(ShopContect)
 
     useEffect(() => {
         const timerId = setTimeout(closeAlert, 3000);
 
         return () => clearTimeout(timerId);
         //eslint-disable-next-line
-    }, [name])
+    }, [alertName])
 
     return <div className="alert bg-violet text-white position-fixed">
-        Товар {name} добавлен в корзину
+        Товар {alertName} добавлен в корзину
     </div>
 }
 export {Alert}

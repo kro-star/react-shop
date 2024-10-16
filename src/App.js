@@ -1,19 +1,23 @@
 import { GoodInfo } from './components/GoodInfo';
 import {Shop} from './components/Shop';
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+
+import { ContextProvider } from "./context";
 
 function App() {
-  return <Shop /> 
-    
+  return <>
+    <Header />
+    <ContextProvider>
+      <Shop />
+    </ContextProvider>
+    <Footer />
+  </>
+  
   
 }
 
 export default App;
 
-/*return <BrowserRouter>
-      <Routes>            
-        <Route path="/" element={<Shop />} />
-        <Route path="/product/:productId" element={<GoodInfo />} />
-      </Routes>
-    </BrowserRouter> */

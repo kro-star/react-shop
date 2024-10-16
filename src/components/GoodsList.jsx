@@ -1,9 +1,10 @@
-
+import { useContext } from 'react';
+import { ShopContect } from '../context';
 import {GoodItem} from './GoodItem'
 
 
-function GoodsList(props){
-    const {goods = [], addGood = Function.prototype, closeAlert = Function.prototype, } = props;
+function GoodsList(){
+    const {goods = [] } = useContext(ShopContect);
     if (!goods.length){
         return <h3>Goods not found!</h3>
     }
@@ -11,7 +12,7 @@ function GoodsList(props){
     return <div className="goods row">
             {goods.slice(0, 20).map(item => 
             
-                    <GoodItem key={item.mainId} {...item} addGood = {addGood} closeAlert={closeAlert}/>
+                    <GoodItem key={item.mainId} {...item} />
             )}
         </div> 
     

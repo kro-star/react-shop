@@ -1,9 +1,11 @@
-import { Link } from 'react-router-dom';
+
+import { ShopContect } from '../context';
+import { useContext } from 'react';
 
 function GoodItem(props){
-    const{ mainId, displayName, displayDescription, price, displayAssets, addGood = Function.prototype  } = props;
+    const{ mainId, displayName, displayDescription, price, displayAssets, quantity = 0 } = props;
     
-    //console.log(displayAssets[0].full_background );
+    const { addGood } = useContext( ShopContect );
 
     return(<> 
         {
@@ -15,12 +17,15 @@ function GoodItem(props){
                 
                     { displayAssets[0].full_background.length > 0 ?  <img src={displayAssets[0].full_background} className="card-img-top w-100 " alt={displayName}/> : {displayName}
                     }
+                
                 <div className="card-body d-flex flex-column ">
                     
+                
                     <div className="card-title">{displayName}</div>
+                
                     <div className="card-text flex-grow-1">{displayDescription}</div>
                     <div className="fs-4 mb-3 text-center text-violet fw-medium ">{price.finalPrice} руб.</div>
-                    <button className="btn btn-primary w-100 text-center" onClick={() => addGood({mainId, price, displayAssets, displayName})
+                    <button className="btn btn-primary w-100 text-center" onClick={() => addGood({mainId, price, displayAssets, displayName, quantity})
                         }>
                             Купить
                     </button>
@@ -35,34 +40,7 @@ function GoodItem(props){
 export {GoodItem}
 
 
-/*{
-        mainId ?
 
-        
-        <div className="col-12 col-sm-6 col-md-4 col-lg-3 pb-5" id={mainId} >
-            <div className="card  h-100" >
-                
-                <Link key={mainId} to={`/product/${mainId}`}>
-                    { displayAssets[0].full_background.length > 0 ?  <img src={displayAssets[0].full_background} className="card-img-top w-100 " alt={displayName}/> : {displayName}
-                    }
-                </Link>
-                <div className="card-body d-flex flex-column ">
-                    
-                <Link key={mainId} to={`/product/${mainId}`}>
-                    <div className="card-title">{displayName}</div>
-                </Link>
-                    <div className="card-text flex-grow-1">{displayDescription}</div>
-                    <div className="fs-4 mb-3 text-center text-violet fw-medium ">{price.finalPrice} руб.</div>
-                    <button className="btn btn-primary w-100 text-center" onClick={() => addGood({mainId, price, displayAssets, displayName})
-                        }>
-                            Купить
-                    </button>
-            </div>
-        </div>
-       
-    </div> : ''
-    }
-    </> */
 
 
 /*

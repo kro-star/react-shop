@@ -1,9 +1,13 @@
+import { useContext } from 'react';
+import { ShopContect } from '../../context';
+
 import {} from './cart.css'
 
 
 function Cart(props) {
+    const { handleBascketShow, order } = useContext(ShopContect);
 
-    const {quantity = 0, handleBascketShow = Function.prototype} = props;
+    const quantity = order.length;
     const cartImg = require('../../img/cart.png');
 
     return <div className="cart cursor-pointer" onClick = {handleBascketShow}>
